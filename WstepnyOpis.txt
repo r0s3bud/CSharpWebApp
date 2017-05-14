@@ -5,8 +5,10 @@ Autorzy : Mikołaj Toczek, Wiktor Rozbiegała
   Przedmiotem projektu jest stworzenie aplikacji internetowej, która będzie oferować mechanizmy
   przydatne studentom technicznych kierunków - kalkulatory, konwertery jednostek itp.
   Przewidziane jest stworzenie bazy dla kont użytkowników i funkcjonalność logowania oraz live chat dla
-  zalogowanych użytkowników.
+  zalogowanych użytkowników. Projekt będzie realizowany w technologii ASP.NET. 
   
   Podział zadań : 
   
+  Logowanie, live chat - M.Toczek
+  Baza kont, funkcje użytkowe aplikacji - W.Rozbiegała
   
