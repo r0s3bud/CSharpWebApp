@@ -34,5 +34,12 @@ namespace CSharpWebApp2.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        // HOME/CONVERTERS
+        public ActionResult Converters()
+        {
+            return View();
+        }
     }
 }

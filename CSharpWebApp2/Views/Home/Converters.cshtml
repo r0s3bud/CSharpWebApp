@@ -1,0 +1,167 @@
+﻿
+@{
+    ViewBag.Title = "Converters";
+}
+
+<h2>Converters</h2>
+
+<div class="row">
+    <div class="col-md-1">
+        <label id="labelInput1" for="input1"></label>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <input id="input1" type="number" placeholder="MPH" oninput="Converter(this.id, this.value)" onchange="Converter(this.id, this.value)">
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-1">
+        <label id="labelInput2" for="input2"></label>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <input id="input2" type="number" placeholder="KPH" oninput="Converter(this.id, this.value)" onchange="Converter(this.id, this.value)">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4  col-md-offset-4">
+        <div class="radio">
+            <label><input type="radio" id="temperatures" name="optradio" oninput="ChangeLabels(this.id)" onchange="ChangeLabels(this.id)">Celcjus &lt-&gt Fahrenheit </label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" id="speed" name="optradio" oninput="ChangeLabels(this.id)" onchange="ChangeLabels(this.id)">MPH &lt-&gt KPH</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" id="cmInch" name="optradio" oninput="ChangeLabels(this.id)" onchange="ChangeLabels(this.id)">Centimeter &lt-&gt Inch</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" id="metreYard" name="optradio" oninput="ChangeLabels(this.id)" onchange="ChangeLabels(this.id)">Metre &lt-&gt Yard</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" id="metreFoot" name="optradio" oninput="ChangeLabels(this.id)" onchange="ChangeLabels(this.id)">Metre &lt-&gt Foot</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" id="kilometreMile"name="optradio" oninput="ChangeLabels(this.id)" onchange="ChangeLabels(this.id)">Kilometre &lt-&gt Land mile</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" id="kilogramPound" name="optradio" oninput="ChangeLabels(this.id)" onchange="ChangeLabels(this.id)">Kilogram &lt-&gt Pound</label>
+        </div>
+    </div>
+</div>
+
+<script>
+    function Converter(id, valNum)
+    {
+        valNum = parseFloat(valNum);
+        if (document.getElementById("speed").checked)
+        {
+            document.getElementById("labelInput1").innerText = "MPH";
+            document.getElementById("labelInput2").innerHTML = "KPH";
+            if (id === "input1")
+            {
+                document.getElementById("input2").value = valNum * 1.609344;
+            }
+            else
+            {
+                document.getElementById("input1").value = valNum / 1.609344;
+            }
+        }
+        if (document.getElementById("temperatures").checked) {
+            document.getElementById("labelInput1").innerText = "Celcjus";
+            document.getElementById("labelInput2").innerHTML = "Fahrenheit";
+            if (id === "input1") {
+                document.getElementById("input2").value = valNum * (9/5)+32;
+            }
+            else {
+                document.getElementById("input1").value = (valNum-32) / (9/5);
+            }
+        }
+        if (document.getElementById("cmInch").checked) {
+            if (id === "input1") {
+                document.getElementById("input2").value = valNum * 0.393700787;
+            }
+            else {
+                document.getElementById("input1").value = valNum * 2.54;
+            }
+        }
+        if (document.getElementById("metreYard").checked) {
+            if (id === "input1") {
+                document.getElementById("input2").value = valNum * 1.0936133;
+            }
+            else {
+                document.getElementById("input1").value = valNum / 1.0936133;
+            }
+        }
+        if (document.getElementById("metreFoot").checked) {
+            if (id === "input1") {
+                document.getElementById("input2").value = valNum * 3.2808399;
+            }
+            else {
+                document.getElementById("input1").value = valNum / 3.2808399;
+            }
+        }
+        if (document.getElementById("kilometreMile").checked) {
+            if (id === "input1") {
+                document.getElementById("input2").value = valNum * 0.621371192;
+            }
+            else {
+                document.getElementById("input1").value = valNum * 1.609344;
+            }
+        }
+        if (document.getElementById("kilogramPound").checked) {
+            if (id === "input1") {
+                document.getElementById("input2").value = valNum * 2.20462262;
+            }
+            else {
+                document.getElementById("input1").value = valNum / 2.20462262;
+            }
+        }
+    }
+    function ChangeLabels(id)
+    {
+        if (document.getElementById("speed").checked) {
+            document.getElementById("labelInput1").innerText = "MPH";
+            document.getElementById("labelInput2").innerHTML = "KPH";
+            document.getElementById("input1").placeholder = "MPH";
+            document.getElementById("input2").placeholder = "KPH";
+            }
+        if (document.getElementById("temperatures").checked) {
+            document.getElementById("labelInput1").innerText = "Celcjus";
+            document.getElementById("labelInput2").innerHTML = "Fahrenheit";
+            document.getElementById("input1").placeholder = "Celcjus";
+            document.getElementById("input2").placeholder = "Fahrenheit";
+        }
+        if (document.getElementById("cmInch").checked) {   
+            document.getElementById("labelInput1").innerText = "Centimetres";
+            document.getElementById("labelInput2").innerHTML = "Inches";
+            document.getElementById("input1").placeholder = "Centimetres";
+            document.getElementById("input2").placeholder = "Inches";
+        }
+        if (document.getElementById("metreYard").checked) { 
+            document.getElementById("labelInput1").innerText = "Metres";
+            document.getElementById("labelInput2").innerHTML = "Yards";
+            document.getElementById("input1").placeholder = "Metres";
+            document.getElementById("input2").placeholder = "Yards";
+        }
+        if (document.getElementById("metreFoot").checked) {    
+            document.getElementById("labelInput1").innerText = "Metres";
+            document.getElementById("labelInput2").innerHTML = "Feet";
+            document.getElementById("input1").placeholder = "Metres";
+            document.getElementById("input2").placeholder = "Feet";
+        }
+        if (document.getElementById("kilometreMile").checked) {   
+            document.getElementById("labelInput1").innerText = "Kilometres";
+            document.getElementById("labelInput2").innerHTML = "Miles";
+            document.getElementById("input1").placeholder = "Kilometres";
+            document.getElementById("input2").placeholder = "Miles";
+        }
+        if (document.getElementById("kilogramPound").checked) {
+            document.getElementById("labelInput1").innerText = "Kilograms";
+            document.getElementById("labelInput2").innerHTML = "Pounds";
+            document.getElementById("input1").placeholder = "Kilograms";
+            document.getElementById("input2").placeholder = "Pounds";
+        }
+    }     
+</script>

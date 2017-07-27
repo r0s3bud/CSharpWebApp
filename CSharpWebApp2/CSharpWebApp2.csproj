@@ -270,6 +270,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\_LoginLayout.cshtml" />
     <Content Include="Views\Home\Calculators.cshtml" />
+    <Content Include="Views\Home\Converters.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
