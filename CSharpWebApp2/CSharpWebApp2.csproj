@@ -205,8 +205,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CalculateDFT.cs" />
+    <Compile Include="Models\CalculateIDFT.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PeriodicSignal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -271,6 +274,7 @@
     <Content Include="Views\Account\_LoginLayout.cshtml" />
     <Content Include="Views\Home\Calculators.cshtml" />
     <Content Include="Views\Home\Converters.cshtml" />
+    <Content Include="Views\Home\DFT.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

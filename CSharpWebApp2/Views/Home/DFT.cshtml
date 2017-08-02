@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Discreet Fourier Transform";
+}
+
+<h2>@ViewBag.Title</h2>
+@{
+    if (ViewBag.resultSin != null)
+    {
+        <p>The sine coefficients of the Discreet Fourier Transform of the provided signal are :
+            <br/><Strong>@ViewBag.resultSin</Strong></p>
+        <p>The cosine coefficients of the Discreet Fourier Transform of the provided signal are :
+            <br/><Strong>@ViewBag.resultCos</Strong></p>   
+    }    
+}
+
+
+    <div class="row">
+        <form action="CalculateDFT" method="post" name="CalculateDFT">
+            <div class="col-md-2">
+                <label id="labelInputDFT" for="parametersDFT">Please provide the signal samples separated by spaces :</label>
+                <input type="text" name="parametersDFT"/>
+            </div>
+        </form>
+    </div>
+
+<h2>IDFT</h2>
+
+@{
+    if (ViewBag.resultIDFT != null)
+    {
+        <p>The resulting signal of the IDFT is - @ViewBag.resultIDFT</p>
+    }
+}
+
+<div class="row">
+    <form action="CalculateIDFT" method="post" name="test">
+        <div class="col-md-2">
+            <label id="labelInputIDFT" for="parametersIDFT">Please provide the sine and cosine coefficients of the transform, seperate cofficients of the same function with spaces and coefficients sets with the semicolon(;) sign :</label>
+            <input type="text" name="parametersIDFT"/>
+        </div>
+    </form>
+</div>
