@@ -2,41 +2,85 @@
     ViewBag.Title = "Discreet Fourier Transform";
 }
 
-<h2>@ViewBag.Title</h2>
-@{
-    if (ViewBag.resultSin != null)
-    {
-        <p>The sine coefficients of the Discreet Fourier Transform of the provided signal are :
-            <br/><Strong>@ViewBag.resultSin</Strong></p>
-        <p>The cosine coefficients of the Discreet Fourier Transform of the provided signal are :
-            <br/><Strong>@ViewBag.resultCos</Strong></p>   
-    }    
+@section Styles {
+    <link href="@Url.Content("~/Content/DFT.css")" rel="stylesheet" type="text/css" />
 }
+<div class="row">
+    <div class="col-md-6">
+        <h2 class="DFT" id="elegantshadow">@ViewBag.Title</h2>
+        @{
+            if (ViewBag.resultSin != null)
+            {
 
+                var SinResults = ViewBag.resultSin;
+                string[] SinResultsSeparated = SinResults.Split(' ');
 
-    <div class="row">
+                <p class="ResultInformation">
+                    The <strong>sine</strong> coefficients of the Discreet Fourier Transform of the provided signal are :
+                    <br />
+                </p>
+                <ul>
+                    @foreach (string SinResult in SinResultsSeparated)
+                    {
+                        <li>@SinResult</li>
+                    }
+                </ul>
+
+                var CosResults = ViewBag.resultCos;
+                string[] CosResultsSeparated = CosResults.Split(' ');
+
+                <p class="ResultInformation">
+                    The <strong>cosine</strong> coefficients of the Discreet Fourier Transform of the provided signal are :
+                    <br />
+                </p>
+                <ul>
+                     @foreach (string CosResult in CosResultsSeparated)
+                      {
+                         <li>@CosResult</li>
+                      }
+                </ul>
+            }
+        }
         <form action="CalculateDFT" method="post" name="CalculateDFT">
-            <div class="col-md-2">
-                <label id="labelInputDFT" for="parametersDFT">Please provide the signal samples separated by spaces :</label>
-                <input type="text" name="parametersDFT"/>
+            <label id="labelInputDFT" for="parametersDFT">Please provide the signal samples separated by spaces :</label>
+            <div class="col-xs-4">
+                <input type="text" name="parametersDFT" />
+            </div>
+            <div class="col-xs-4">
+                <input name="CalculateDFT" type="submit" value="Calculate" />
             </div>
         </form>
     </div>
 
-<h2>IDFT</h2>
+    <div class="col-md-6">
+        <h2 id="elegantshadow">Inverse Discreet Fourier Transform</h2>
+        @{
+            if (ViewBag.resultIDFT != null)
+            {
+                var IDFTResults = ViewBag.resultIDFT;
+                string[] IDFTesultsSeparated = IDFTResults.Split(' ');
 
-@{
-    if (ViewBag.resultIDFT != null)
-    {
-        <p>The resulting signal of the IDFT is - @ViewBag.resultIDFT</p>
-    }
-}
+                <p class="ResultInformation">
+                    The resulting signal of the IDFT is -
+                    <br />               
+                </p>
+                <ul>
+                    @foreach (string IDFTResult in IDFTesultsSeparated)
+                    {
+                        <li>@IDFTResult</li>
+                    }
+                </ul>
 
-<div class="row">
-    <form action="CalculateIDFT" method="post" name="test">
-        <div class="col-md-2">
+            }
+        }
+        <form action="CalculateIDFT" method="post" name="test">
             <label id="labelInputIDFT" for="parametersIDFT">Please provide the sine and cosine coefficients of the transform, seperate cofficients of the same function with spaces and coefficients sets with the semicolon(;) sign :</label>
-            <input type="text" name="parametersIDFT"/>
-        </div>
-    </form>
+            <div class="col-xs-4">
+                <input type="text" name="parametersIDFT" />
+            </div>
+            <div class="col-xs-4">
+                <input name="CalculateIDFT" type="submit" value="Calculate" />
+            </div>
+        </form>
+    </div>
 </div>
