@@ -41,9 +41,6 @@ namespace CSharpWebApp2.Controllers
 
         public ActionResult RandomPasswordGenerator()
         {
-            ViewBag.Message = "Random password generator";
-            //string Password = null;
-            ViewBag.Password = new GenerateRandomPassword().GeneratePassword();
             return View();
         }
 
@@ -99,6 +96,14 @@ namespace CSharpWebApp2.Controllers
             ViewBag.resultIDFT = result;
 
             return View("DFT");
+        }
+
+        [System.Web.Mvc.HttpGet]
+        public ActionResult generatePassword()
+        {
+            ViewBag.Message = "Random password generator";
+            ViewBag.Password = new GenerateRandomPassword().GeneratePassword();
+            return View("RandomPasswordGenerator");
         }
     }
 }
