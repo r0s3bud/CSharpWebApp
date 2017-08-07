@@ -13,7 +13,7 @@
             {
 
                 var SinResults = ViewBag.resultSin;
-                string[] SinResultsSeparated = SinResults.Split(' ');
+                string[] SinResultsSeparated = SinResults.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
                 <p class="ResultInformation">
                     The <strong>sine</strong> coefficients of the Discreet Fourier Transform of the provided signal are :
@@ -27,7 +27,7 @@
                 </ul>
 
                 var CosResults = ViewBag.resultCos;
-                string[] CosResultsSeparated = CosResults.Split(' ');
+                string[] CosResultsSeparated = CosResults.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
                 <p class="ResultInformation">
                     The <strong>cosine</strong> coefficients of the Discreet Fourier Transform of the provided signal are :
@@ -58,7 +58,7 @@
             if (ViewBag.resultIDFT != null)
             {
                 var IDFTResults = ViewBag.resultIDFT;
-                string[] IDFTesultsSeparated = IDFTResults.Split(' ');
+                string[] IDFTesultsSeparated = IDFTResults.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
                 <p class="ResultInformation">
                     The resulting signal of the IDFT is -

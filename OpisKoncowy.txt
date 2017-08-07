@@ -1,0 +1,60 @@
+Koncowy Opis projektu 
+
+Autorzy : Miko³aj Toczek, Wiktor Rozbiega³a
+
+W zrealizowanym przez nas projekcie zawarliœmy wszystkie punkty
+wspomniane przez nas w opisie wstêpnym, oprócz funkcji live chat,
+na impementacje której nie starczy³o czasu.
+
+Projekt zrealizowano w technologii ASP.NET. Zaimplementowano nastêpuj¹ce funkcjonalnoœci:
+
+-System kont i logowania
+-Kalkulator, zrealizowany g³ównie przy u¿yciu JavaScript
+-Konwerter jednostek, zrealizowany g³ównie przy u¿yciu JavaScript
+-Kalkulator Dyskretnej Transformaty Fouriera sygna³u, oparty na backendzie C# i wykorzystuj¹cy Razer Syntax
+-Generator hase³, oparty na backendzie C# i wykorzystuj¹cy Razer Syntax
+
+System kont i logowania - utworzony na podstawie gotowego szablonu, jaki oferuje VS Community 2017
+
+Kalkulator - praktycznie ca³oœæ wraz z logik¹ zawarta w pliku widoku -
+- dynamicznoœæ zmian uzyskana dziêki JavaScript. Wciskanie przycisków
+kalkulatora na stronie powoduje dopisanie odpowiednich znaków do pola 
+"result", z którego po wciœniêciu przycisku równoœci tworzone jest równanie
+matematyczne, którego wynik nadpisuje aktualn¹ wartoœæ pola result.
+
+Konwerter jednostek - równie¿ wykorzystuje JavaScript. Przy zmianie wartoœci
+pola wywo³ywana jest funkcja JS która zmienia wartoœæ drugiego, powi¹zanego pola
+wed³ug zadanego wzoru matematycznego (zale¿nie od tego, który radio button jest zaznaczony).
+
+Generator Hase³ - po wciœniêciu przycisku generowania nowego has³a
+wysy³any jest POST na serwer, co powoduje wywo³anie w kontrolerze 
+funkcji z modelu, odpowiedzialnej za stworzenie 12-znakowego, losowego has³a.
+Nastêpnie renderowany jest nowy widok z widocznym wygenerowanym ju¿ has³em.
+
+-Kalkulator DFT
+Model Calculate DFT zawiera logikê backendow¹ napisan¹ w jêzyku c#, 
+w klasie znajduje siê funkcja zwracaj¹ca Tuple czyli odpowiednik bazodanowej 
+krotki o dwóch elementach- tablice double'i. Na wejœciu funkcja ta otrzymuje 
+string z parametrami. Wewn¹trz funkcji zawarty jest
+algorytm przetworzenia danych wejœciowych z apki, nastêpnie wywo³ywana jest funkcja 
+DFT, w której zawarty jest algorytm obliczenia wspó³czynników oraz zapisanie 
+ich do tablicy, numer w tablicy odpowiada numerowi wspó³czynnika sygna³u.
+Tak samo wygl¹da to w przypadku modelu Calculate IDFT tylko, ¿e ró¿ni siê
+algorytmem obliczania.
+
+Widok DFT.cshtml 
+Na pocz¹tku tego pliku linkowany jest plik css-owy z formatowaniem strony.
+Nastêpnie przy pomocy bootstrapowego podzia³u strony na 12 sekcji rozmieszczane 
+odpowiednio s¹ informacje o DFT i IDFT. Elementy które poprzedza znak @ zawieraj¹ 
+kod napisany w jêzyku C# jest to tzw. razer syntax, dziêki któremu wyœwietlane s¹ 
+obliczone wartoœci w modelu, Dostêp do nich mamy dziêki przypisaniu wartoœci w 
+controllerze do odpowiedniego viewbaga.
+
+Podzia³ zrealizowanych zadañ wygl¹da³ nastêpuj¹co : 
+
+Logika DFT i Generatora hase³ - Wiktor Rozbiega³a
+Wprowadzenie interakcji pomiêdzy logik¹ a front-endem ww. funkcji (obs³uga poprzez kontroler) - M.Toczek
+
+Kalkulator, Konwerter - Miko³aj Toczek
+
+Poprawy aspektów wizualnych - Wiktor Rozbiega³a
